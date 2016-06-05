@@ -1,0 +1,72 @@
+html, body{
+    width: 100%;
+    height: 100%;    
+}
+html, body{
+    margin: 0px;
+   
+}
+container{
+    
+    margin-left: auto;
+    margin-right: auto;
+    padding: 6px;
+    display: table;
+    width: 90%;
+}
+li>ltext{
+    float: right;
+    margin-right: 30px;
+}
+button{
+    display: block;
+    width: 140px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+.head_part{
+    display: block;
+    width: 100%;
+    height: 43px;
+    background: red;
+    margin-bottom: 25px;
+}
+.left{
+    display: inline-block;
+    width: 30%;
+    border: 8px inset green;
+    padding: 20px;
+}
+.buttons{
+    display: inline-block;
+    width: 30%;
+    height: 100%;
+}
+.right{
+    display: inline-block;
+    width: 30%;
+    border: 8px inset red;
+}
+.p1{
+    margin-top: 20px;
+}
+.window{
+    display: table-row;
+    height: 100%;
+    vertical-align: top; 
+    
+}
+.log{
+    display: table-row;
+    width: 100%;
+    height: 200px;
+    
+    /*background: #66FF33;*/
+}
+.foter{
+    background-color: black;
+}
+.foter p{
+    color: white;
+}
