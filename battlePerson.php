@@ -20,12 +20,12 @@
                 <li>Наличие отсутствия <ltext><?php echo $pers1->gun?></ltext></li>
             </ul>                
             </div>
-            <div class="buttons"><form action="action.php">                
+            <div class="buttons">               
                 <button>Запуск</button>
-                <button>Настройки</button>
+                <button onclick="manipulate.php?action=create01">Настройки</button>
                 <button>Обновить</button>
                 <button>Результаты</button>
-            </form></div>
+            </div>
             <div class="right"><p>Окно второго персонажа NAME</p>
             <ul>
                 <li>Здоровье <ltext><?php echo $pers2->hels?></ltext></li>

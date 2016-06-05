@@ -1,10 +1,10 @@
 <?php
-include "datebase.php";
+
 include "index2.php";
-$link = db_connect();
+
 
 ##функция создания нового персонажа с записью в базу
-function create_person($name,$hels,$damage,$gun){
+function create_person($link, $name,$hels,$damage,$gun){
     $name=trim($name);
     $hels=trim($hels);
     $demage=trim($damage);

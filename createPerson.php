@@ -8,7 +8,7 @@
 <body>
    <container>
        <div class="p1">
-       <form method="post" action="action.php">
+       <form method="post" action="manipulate.php">
           <input type="text" name="txtName" size="10" maxlength="10" value="Создание персонажа"><br /><br />
           <input type="text" name="NameForm" size="10" value="Имя персонажа">
           <p>Здоровье</p><input type="text" name="Hels" size="5" value="10">
