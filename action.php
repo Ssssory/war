@@ -4,7 +4,7 @@ include "index2.php";
 
 
 ##функция создания нового персонажа с записью в базу
-function create_person($link, $name,$hels,$damage,$gun){
+function create_person($link, $name, $hels, $damage, $gun){
     $name=trim($name);
     $hels=trim($hels);
     $demage=trim($damage);
@@ -26,6 +26,7 @@ function writetext($text){
 функция выбора персонажа из базы
 функция редактирования персонажа руками с записью в базу
 функция удаления персонажа из базы
+Функция просмотра всех имеющихся персонажей
 функция коррекции данных персонажа в базе без участия рук
 функция взаимодействия двух персонажей
 
@@ -36,16 +37,5 @@ function writetext($text){
 
 
 */
-/*
-$name = $_POST('NameForm');
-$hels = $_POST('Hels');
-$damage = $_POST('damage');
-$weapon = $_POST('');
-$armor = $_POST('');
-$inventory = array();
-$inventory[0] = $_POST('slot1');
-$inventory[1] = $_POST('slot2');
-$inventory[2] = $_POST('slot3');
-print_r ($name. $hels. $damage. $weapon. $armor) 
-*/
+
 ?>
