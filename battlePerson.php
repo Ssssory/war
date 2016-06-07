@@ -7,7 +7,7 @@
 </head>
 <body>
    <?php
-    include "action.php";
+    include_once "action.php";
     ?>
     <container>
         <div class="head_part"><h1>Заготовка под визуальное оформление</h1></div>
@@ -21,10 +21,12 @@
             </ul>                
             </div>
             <div class="buttons">               
-                <button>Запуск</button>
-                <button onclick="manipulate.php?action=create01">Настройки</button>
-                <button>Обновить</button>
-                <button>Результаты</button>
+               <form action="manipulate.php" method='post'>
+                    <button name='way' value='start'>Запуск</button>
+                    <button name='way' value='opsion'>Настройки</button>
+                    <button name='way' value='new_p'>Создать</button>
+                    <button name='way' value='correct'>Изменить</button>
+                </form>
             </div>
             <div class="right"><p>Окно второго персонажа NAME</p>
             <ul>

@@ -40,12 +40,13 @@
                <option value="grenade">Граната</option>
                <option value="medkit">Аптечка</option>               
            </select><br /><br />
+           <input type='hidden' name='way' value='new_p_cr'></input>
            <input type="submit" value="Создать">            
        </form>    
        </div>
        
        <div class="p2">
-           
+           <a href="battlePerson.php">Назад</a>
        </div>
    </container>
     
