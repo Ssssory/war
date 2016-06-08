@@ -16,9 +16,17 @@ $inventory[2] = $_POST['slot3'];
 echo "$name, $hels, $damage, $weapon ";
 */
 if(isset($_POST['way'])){
+    ##Вызов окна настроек    
+    if($_POST['way'] == 'option'){
+        header('Location: ops.php');
+    }
+        
+    
+    ##вызов окна создания персонажа
     if($_POST['way'] == 'new_p'){
         header('Location: createPerson.php');
     }
+    ##Запрос в базу на создание
     if($_POST['way'] == 'new_p_cr'){
         create_person($link, $_POST['NameForm'], $_POST['Hels'], $_POST['damage'], $_POST['wepon']);
         header('Location: createPerson.php');

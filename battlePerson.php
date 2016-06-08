@@ -23,7 +23,7 @@
             <div class="buttons">               
                <form action="manipulate.php" method='post'>
                     <button name='way' value='start'>Запуск</button>
-                    <button name='way' value='opsion'>Настройки</button>
+                    <button name='way' value='option'>Настройки</button>
                     <button name='way' value='new_p'>Создать</button>
                     <button name='way' value='correct'>Изменить</button>
                 </form>
