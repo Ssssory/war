@@ -17,6 +17,22 @@ $result = mysqli_query($link, $query);
         die(mysqli_error($link));
 return true;
 }
+##Функция просмотра всех имеющихся персонажей
+function look_all($link){
+    $query = "SELECT * FROM persons ORDER BY id DESC";
+    $result = mysqli_query($link, $query);
+        if(!$result){
+            die(mysqli_error($link));
+        }
+    $n = mysqli_num_rows($result);
+    $person_window = array();
+    
+    for ($i=0; $i<$n; $i++){
+        $row = mysqli_fetch_assoc($result);
+        $person_window[] = $row;
+    }
+    return $person_window;
+}
 /*
 функция вывода текста в лог
 function writetext($text){
@@ -26,7 +42,8 @@ function writetext($text){
 функция выбора персонажа из базы
 функция редактирования персонажа руками с записью в базу
 функция удаления персонажа из базы
-Функция просмотра всех имеющихся персонажей
+
+
 функция коррекции данных персонажа в базе без участия рук
 функция взаимодействия двух персонажей
 
