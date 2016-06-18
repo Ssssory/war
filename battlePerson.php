@@ -8,12 +8,13 @@
 <body>
    <?php
     include_once "action.php";
+    include_once "thisisbattle.php";
     ?>
     <container>
         <div class="head_part"><h1>Заготовка под визуальное оформление</h1></div>
         <div class="window">
             <div class="left">
-                <p>Окно первого персонажа NAME</p>
+                <p>Окно первого персонажа <?php echo $pers1->name ?></p>
             <ul>
                 <li>Здоровье <ltext><?php echo $pers1->hels?></ltext></li>
                 <li>Сила <ltext><?php echo $pers1->damag?></ltext></li>
@@ -28,7 +29,7 @@
                     <button <?php ##name='way' value='correct'?>>Изменить</button>
                 </form>
             </div>
-            <div class="right"><p>Окно второго персонажа NAME</p>
+            <div class="right"><p>Окно второго персонажа <?php echo $pers2->name ?></p>
             <ul>
                 <li>Здоровье <ltext><?php echo $pers2->hels?></ltext></li>
                 <li>Сила <ltext><?php echo $pers2->damag?></ltext></li>
@@ -38,7 +39,7 @@
         <div class="log">
         <p>лог происходящего</p><hr />
         <?php 
-            echo "gggg";
+            echo($text);
                   
             ?>
         </div>                
