@@ -1,20 +1,20 @@
 <?php
-include_once"action.php";
+include_once("action.php");
 require_once('datebase.php');
     $link=db_connect();
 
 $all_of_them = array();
 $all_of_them = look_all($link);
-print_r($all_of_them); //удалить после отладки
 $n = count($all_of_them);
-$a = rand(0,$n-1);
-$b = rand(0,$n-1);
+$n -= 1;
+$a = rand(0,$n);
+$b = rand(0,$n);
 if ($a == $b){
     while($a==$b) {
         $b = rand(0,$n);
     }
 }
-echo "<br>$a , $b <br>";
+//echo "<br>$a , $b <br>"; отладочная строка
 
 //прототип класса персонажа
 class person{
@@ -36,10 +36,8 @@ class person{
     }
     public function damagSelf($d){
         $this->hels -= $d;
-        //echo $d;
         if ($this->hels <= 0){
-            $this->life = 0;
-            echo "персонаж ". $this->name ." погиб;( "; // с этим надо что-то делать.
+            $this->life = 0;             
         }
     }
 }
@@ -48,17 +46,29 @@ class person{
 $pers1 = new person($all_of_them[$a]['id'], $all_of_them[$a]['name'], $all_of_them[$a]['hels'], $all_of_them[$a]['damage']);
 $pers2 = new person($all_of_them[$b]['id'], $all_of_them[$b]['name'], $all_of_them[$b]['hels'], $all_of_them[$b]['damage']);
 // переделать в функцию и вызывать по нажатию кнопки
-$text = '';
+$text_rez = new write_text;
+
 //просчитать арену
-while ($pers1->life != 0 or $pers2->life != 0){
-    $text = $text . "выстрел<br>";
+$count = 0;
+while ($pers1->life || $pers2->life != 0){
+    $count++;
+    $text_rez->set_t("Round $count <br>");
+    $text_rez->set_t("атака <br>");
     $d = $pers1->shoot();
     $pers2->damagSelf($d);
-    $text = $text . "ответный выстрел<br>";
-    $d = $pers2->shoot();
-    $pers1->damagSelf($d);
-}
-//вывести результат
-echo($text);
-
+    if ($pers2->life == 0){
+        $text_rez->set_t( "персонаж ". $pers2->name ." потерпел поражение "); 
+        break;
+    }
+    if($pers2->life == 1){
+        $text_rez->set_t("ответная атака <br>");
+        $d = $pers2->shoot();
+        $pers1->damagSelf($d);
+        if ($pers1->life == 0){
+            $text_rez->set_t( "персонаж ". $pers1->name ." потерпел поражение ");
+            break;
+        }
+    }
+   }
+    
 ?>

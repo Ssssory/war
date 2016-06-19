@@ -14,10 +14,10 @@
         <div class="head_part"><h1>Заготовка под визуальное оформление</h1></div>
         <div class="window">
             <div class="left">
-                <p>Окно первого персонажа <?php echo $pers1->name ?></p>
+                <p>Окно первого персонажа <?php echo $all_of_them[$a]['name'] ?></p>
             <ul>
-                <li>Здоровье <ltext><?php echo $pers1->hels?></ltext></li>
-                <li>Сила <ltext><?php echo $pers1->damag?></ltext></li>
+                <li>Здоровье <ltext><?php echo $all_of_them[$a]['hels']?></ltext></li>
+                <li>Сила <ltext><?php echo $all_of_them[$a]['damage']?></ltext></li>
                 <li>Наличие отсутствия <ltext><?php echo $pers1->gun?></ltext></li>
             </ul>                
             </div>
@@ -29,18 +29,17 @@
                     <button <?php ##name='way' value='correct'?>>Изменить</button>
                 </form>
             </div>
-            <div class="right"><p>Окно второго персонажа <?php echo $pers2->name ?></p>
+            <div class="right"><p>Окно второго персонажа <?php echo $all_of_them[$b]['name'] ?></p>
             <ul>
-                <li>Здоровье <ltext><?php echo $pers2->hels?></ltext></li>
-                <li>Сила <ltext><?php echo $pers2->damag?></ltext></li>
+                <li>Здоровье <ltext><?php echo $all_of_them[$b]['hels']?></ltext></li>
+                <li>Сила <ltext><?php echo $all_of_them[$b]['damage']?></ltext></li>
                 <li>Наличие отсутствия <ltext><?php echo $pers2->gun?></ltext></li>
             </ul>                </div>
         </div>
         <div class="log">
         <p>лог происходящего</p><hr />
-        <?php 
-            echo($text);
-                  
+        <?php
+            $text_rez->write_t();                              
             ?>
         </div>                
     </container>

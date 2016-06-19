@@ -36,8 +36,18 @@ function look_all($link){
 
 
 //функция вывода текста в лог
-function writetext($text){
-    echo $text."<br />";    
+class write_text{
+    public $text = "";
+    function set_t($txt){
+        $this->text = $this->text . $txt;
+    }
+    function write_t(){
+        echo $this->text;
+    return ($this->text);    
+    }
+    function clear_t(){
+        $this->text = '';
+    }
 }
 /*
 
