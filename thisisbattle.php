@@ -2,7 +2,7 @@
 include_once("action.php");
 require_once('datebase.php');
     $link=db_connect();
-
+//выбор двух случайных персонажей из базы
 $all_of_them = array();
 $all_of_them = look_all($link);
 $n = count($all_of_them);
@@ -16,6 +16,10 @@ if ($a == $b){
 }
 //echo "<br>$a , $b <br>"; отладочная строка
 
+//выбор оружия для персонажа
+$wep1=wepon_chenge($link,$all_of_them[$a]['id_w']);
+$wep2=wepon_chenge($link,$all_of_them[$b]['id_w']);
+
 //прототип класса персонажа
 class person{
     public $id = 0;
@@ -24,7 +28,8 @@ class person{
     public $life = 1;
     public $ganDamag = 0;
     public $gun = "перочиный ножик";
-    function __construct($id, $name, $hels, $damag){
+    function __construct($id, $name, $hels, $damag, $wep){
+        $this->gun = $wep;
         $this->id = $id;
         $this->name = $name;
         $this->hels = $hels;
@@ -43,8 +48,8 @@ class person{
 }
 
 //загоняем выборку в классы
-$pers1 = new person($all_of_them[$a]['id'], $all_of_them[$a]['name'], $all_of_them[$a]['hels'], $all_of_them[$a]['damage']);
-$pers2 = new person($all_of_them[$b]['id'], $all_of_them[$b]['name'], $all_of_them[$b]['hels'], $all_of_them[$b]['damage']);
+$pers1 = new person($all_of_them[$a]['id'], $all_of_them[$a]['name'], $all_of_them[$a]['hels'], $all_of_them[$a]['damage'], $wep1['name_wepon']);
+$pers2 = new person($all_of_them[$b]['id'], $all_of_them[$b]['name'], $all_of_them[$b]['hels'], $all_of_them[$b]['damage'], $wep2['name_wepon']);
 // переделать в функцию и вызывать по нажатию кнопки
 $text_rez = new write_text;
 

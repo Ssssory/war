@@ -30,7 +30,18 @@ function look_all($link){
     }
     return $person_window;
 }
-
+//функция выбора оружия из базы
+function wepon_chenge($link, $id_w){
+    $query = sprintf("SELECT * FROM wepon WHERE id_w=%d", (int)$id_w);
+    $result = mysqli_query($link, $query);
+    
+    if (!$result)
+        die(mysqli_error($link));
+    
+    $chenge_w = array();   
+    $chenge_w = mysqli_fetch_assoc($result);   
+    return $chenge_w;
+}
 //функция выбора персонажа из базы
 
 
