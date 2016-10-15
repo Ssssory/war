@@ -7,8 +7,8 @@ function create_person($link, $name, $hels, $damage, $gun){
     $demage=trim($damage);
 ##Запилить проверку на числа и отрицательные значения. Возможно просто перепилить поле в счётчик.
 ##Проверка на пустые строки.
-    $person_cr="INSERT INTO persons (name, hels, damage) VALUES('%s','%s','%s')";
-    $query=sprintf($person_cr,mysqli_real_escape_string($link, $name), mysqli_real_escape_string($link, $hels), mysqli_real_escape_string($link, $damage));
+    $person_cr="INSERT INTO persons (name, hels, damage, id_w) VALUES('%s','%s','%s','%s')";
+    $query=sprintf($person_cr,mysqli_real_escape_string($link, $name), mysqli_real_escape_string($link, $hels), mysqli_real_escape_string($link, $damage),(int)$gun);
 $result = mysqli_query($link, $query);
     if(!$result)
         die(mysqli_error($link));
@@ -44,7 +44,15 @@ function wepon_chenge($link, $id_w){
 }
 //функция выбора персонажа из базы
 
-
+//функция удаления персонажа из базы
+function delete_person($link, $id){
+	$query = sprintf("DELETE FROM persons WHERE id=%d", (int)$id);
+	$result = mysqli_query($link, $query);
+	
+	if (!$result)
+            die(mysqli_error($link));
+	return $result;
+}
 
 //функция вывода текста в лог
 class write_text{
@@ -59,11 +67,16 @@ class write_text{
     function clear_t(){
         $this->text = '';
     }
+    function result_save($txt){
+        $this->text = $txt;
+        //пишем результат в базу
+        clear_t();
+    }
 }
 /*
 
 функция редактирования персонажа руками с записью в базу
-функция удаления персонажа из базы
+
 функция коррекции данных персонажа в базе без участия рук
 функция взаимодействия двух персонажей
 
