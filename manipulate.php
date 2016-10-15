@@ -20,6 +20,10 @@ if(isset($_POST['way'])){
     if($_POST['way'] == 'option'){
         header('Location: ops.php');
     }
+    if($_POST['way'] == 'delete'){
+        delete_person($link, $_POST['id']);
+        echo "Удалён";
+    }
         
     
     ##вызов окна создания персонажа
