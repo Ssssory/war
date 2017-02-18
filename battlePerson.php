@@ -19,9 +19,9 @@
                 <li>Здоровье <ltext><?php echo $all_of_them[$a]['hels']?></ltext></li>
                 <li>Сила <ltext><?php echo $all_of_them[$a]['damage']?></ltext></li>
                 <li>Наличие отсутствия <ltext><?php echo $pers1->gun?></ltext></li>
-            </ul>                
+            </ul>
             </div>
-            <div class="buttons">               
+            <div class="buttons">
                <form action="manipulate.php" method='post'>
                     <button <?php ##name='way' value='start'?>>Запуск</button>
                     <button name='way' value='option'>Настройки</button>
@@ -38,10 +38,8 @@
         </div>
         <div class="log">
         <p>лог происходящего</p><hr />
-        <?php
-            $text_rez->write_t();                              
-            ?>
-        </div>                
+        <?php $text_rez->write_t(); ?>
+        </div>
     </container>
     <div class="foter"><p>Какая-нибудь навигация</p></div>
 </body>
