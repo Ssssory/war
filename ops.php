@@ -32,7 +32,6 @@
       $arrWepon[$key['id_w']]['name_wepon'] = $key["name_wepon"];
       $arrWepon[$key['id_w']]['damage_min'] = $key["damage_min"];
       $arrWepon[$key['id_w']]['damage_max'] = $key["damage_max"];
-
     }
     // echo "<pre>";
     // print_r($arrWepon);
