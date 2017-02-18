@@ -22,17 +22,16 @@
     }
     </script>
 </head>
-<body>    
+<body>
    <container>
        <div class="p1">
        <form method="post" action="manipulate.php">
           <label type="text">Создание персонажа</label><br /><br />
           <input type="text" name="NameForm" size="10" placeholder="Имя персонажа">
-          <p>Здоровье</p><input type="text" name="Hels" size="5" value="200">
-          <p>Урон</p><input type="text" name="damage" size="5" value="20">
-          <select name="wepon" size = multiple> 
-              <option value="1">Перочиный ножик</option> 
-              <option value="2">Пистолет</option> 
+          <p>Здоровье</p><input type="text" name="Hels" size="5" value="20">
+          <select name="wepon" size = multiple>
+              <option value="1">Перочиный ножик</option>
+              <option value="2">Пистолет</option>
               <option value="3">Аутомат</option>
               <option value="4">СВД</option>
               <option value="5">Пулеимёт</option>
@@ -45,27 +44,27 @@
            <select name="slot1" size = multiple>
                <option value="clear">Пусто</option>
                <option value="grenade">Граната</option>
-               <option value="medkit">Аптечка</option>               
+               <option value="medkit">Аптечка</option>
            </select>
            <select name="slot2" size = multiple>
                <option value="clear">Пусто</option>
                <option value="grenade">Граната</option>
-               <option value="medkit">Аптечка</option>               
+               <option value="medkit">Аптечка</option>
            </select>
            <select name="slot3" size = multiple>
                <option value="clear">Пусто</option>
                <option value="grenade">Граната</option>
-               <option value="medkit">Аптечка</option>               
+               <option value="medkit">Аптечка</option>
            </select><br /><br />
            <input type='hidden' name='way' value='new_p_cr'></input>
-           <input type="submit" value="Создать">            
-       </form>    
+           <input type="submit" value="Создать">
+       </form>
        </div>
-       
+
        <div class="p2">
            <a href="battlePerson.php">Назад</a>
        </div>
    </container>
-    
+
 </body>
 </html>

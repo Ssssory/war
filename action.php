@@ -14,6 +14,16 @@ $result = mysqli_query($link, $query);
         die(mysqli_error($link));
 return true;
 }
+##функция изменения свойства персонажа. передавать battle/win/lose
+function update_battle_win_lose($link, $property, $value, $id){
+    $update_property = "UPDATE persons SET count_".$property."=\"".++$value."\" WHERE id=%d";
+    $query=sprintf($update_property, (int)$id);
+$result = mysqli_query($link, $query);
+    if(!$result)
+        die(mysqli_error($link));
+return true;
+}
+
 ##Функция просмотра всех имеющихся персонажей
 function look_all($link){
     $query = "SELECT * FROM persons ORDER BY id DESC";

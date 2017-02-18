@@ -14,6 +14,8 @@ if ($a == $b){
         $b = rand(0,$n);
     }
 }
+update_battle_win_lose($link, "battle", $all_of_them[$a]['count_battle'], $all_of_them[$a]['id']);
+update_battle_win_lose($link, "battle", $all_of_them[$b]['count_battle'], $all_of_them[$b]['id']);
 //----------------------------------
 $all_wepon = wepon_chenge($link);
 foreach ($all_wepon as $key) {
@@ -58,32 +60,24 @@ class person{
         }
     }
 }
+function arrayForPerson ($all_of_them, $arrWepon, $a){
+  $arrForPerson = Array(
+    "id" => $all_of_them[$a]['id'],
+    "name" => $all_of_them[$a]['name'],
+    "hels" => $all_of_them[$a]['hels'],
+    "damage_min" => $arrWepon[$all_of_them[$a]['id_w']]['damage_min'],
+    "damage_max" => $arrWepon[$all_of_them[$a]['id_w']]['damage_max'],
+    "name_wepon" => $arrWepon[$all_of_them[$a]['id_w']]['name_wepon'],
+    "battles" => $all_of_them[$a]['count_battle'],
+    "win" => $all_of_them[$a]['count_win'],
+    "lose" => $all_of_them[$a]['count_lose']
+  );
+  return $arrForPerson;
+}
 
-//загоняем выборку в классы
-$arrFirstPerson = Array(
-  "id" => $all_of_them[$a]['id'],
-  "name" => $all_of_them[$a]['name'],
-  "hels" => $all_of_them[$a]['hels'],
-  "damage_min" => $arrWepon[$all_of_them[$a]['id_w']]['damage_min'],
-  "damage_max" => $arrWepon[$all_of_them[$a]['id_w']]['damage_max'],
-  "name_wepon" => $arrWepon[$all_of_them[$a]['id_w']]['name_wepon'],
-  "battles" => $all_of_them[$a]['count_battle'],
-  "win" => $all_of_them[$a]['count_win'],
-  "lose" => $all_of_them[$a]['count_lose'],
-);
-$arrSecondPerson = Array(
-  "id" => $all_of_them[$b]['id'],
-  "name" => $all_of_them[$b]['name'],
-  "hels" => $all_of_them[$b]['hels'],
-  "damage_min" => $arrWepon[$all_of_them[$b]['id_w']]['damage_min'],
-  "damage_max" => $arrWepon[$all_of_them[$b]['id_w']]['damage_max'],
-  "name_wepon" => $arrWepon[$all_of_them[$b]['id_w']]['name_wepon'],
-  "battles" => $all_of_them[$b]['count_battle'],
-  "win" => $all_of_them[$b]['count_win'],
-  "lose" => $all_of_them[$b]['count_lose'],
-);
-$pers1 = new person( $arrFirstPerson);
-$pers2 = new person( $arrSecondPerson);
+
+$pers1 = new person( arrayForPerson ($all_of_them, $arrWepon, $a));
+$pers2 = new person( arrayForPerson ($all_of_them, $arrWepon, $b));
 // переделать в функцию и вызывать по нажатию кнопки
 $text_rez = new write_text;
 
@@ -98,6 +92,8 @@ while ($pers1->life || $pers2->life != 0){
     $pers2->damagSelf($d);
     if ($pers2->life == 0){
         $text_rez->set_t( "персонаж ". $pers2->name ." потерпел поражение ");
+        update_battle_win_lose($link, "win", $pers1->win, $pers1->id);
+        update_battle_win_lose($link, "lose", $pers2->lose, $pers2->id);
         break;
     }
     if($pers2->life == 1){
@@ -106,6 +102,8 @@ while ($pers1->life || $pers2->life != 0){
         $pers1->damagSelf($d);
         if ($pers1->life == 0){
             $text_rez->set_t( "персонаж ". $pers1->name ." потерпел поражение ");
+            update_battle_win_lose($link, "win", $pers2->win, $pers2->id);
+            update_battle_win_lose($link, "lose", $pers1->lose, $pers1->id);
             break;
         }
     }

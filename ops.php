@@ -45,6 +45,7 @@
                 <td>здоровье</td>
                 <td>урон</td>
                 <td>оружие</td>
+                <td>b/w/l</td>
                 <td>коррекция</td>
                 <td>удаление</td>
             </tr>
@@ -57,6 +58,7 @@
                 <td><?php echo $a['hels']?></td>
                 <td><?php echo $arrWepon[$a['id_w']]['damage_min']." - ".$arrWepon[$a['id_w']]['damage_max']?></td>
                 <td><?php echo $arrWepon[$a['id_w']]['name_wepon']?></td>
+                <td><?php echo $a['count_battle']."/".$a['count_win']."/".$a['count_lose']?></td>
                 <td><a href='manipulate.php?way=edit&id=<?php echo $a['id']?>'>изменить</a></td>
                 <td><a href='/war/ops.php' id_res="<?php echo $a["id"] ?>" onclick="num_id(<?php echo $a["id"] ?>) ">удалить</a></td>
                 <!--<td><a href='manipulate.php?way=delete&id=<?php echo $a['id']?>'>удалить</a></td>-->
