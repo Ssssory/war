@@ -23,7 +23,7 @@ function look_all($link){
         }
     $n = mysqli_num_rows($result);
     $person_window = array();
-    
+
     for ($i=0; $i<$n; $i++){
         $row = mysqli_fetch_assoc($result);
         $person_window[] = $row;
@@ -31,15 +31,20 @@ function look_all($link){
     return $person_window;
 }
 //функция выбора оружия из базы
-function wepon_chenge($link, $id_w){
+function wepon_chenge($link, $id_w = false){
+  if ($id_w) {
     $query = sprintf("SELECT * FROM wepon WHERE id_w=%d", (int)$id_w);
+  }else{
+    $query = ("SELECT * FROM wepon");
+  }
+
     $result = mysqli_query($link, $query);
-    
+
     if (!$result)
         die(mysqli_error($link));
-    
-    $chenge_w = array();   
-    $chenge_w = mysqli_fetch_assoc($result);   
+
+    $chenge_w = array();
+    $chenge_w = mysqli_fetch_all($result, MYSQLI_ASSOC);
     return $chenge_w;
 }
 //функция выбора персонажа из базы
@@ -48,7 +53,7 @@ function wepon_chenge($link, $id_w){
 function delete_person($link, $id){
 	$query = sprintf("DELETE FROM persons WHERE id=%d", (int)$id);
 	$result = mysqli_query($link, $query);
-	
+
 	if (!$result)
             die(mysqli_error($link));
 	return $result;
@@ -62,7 +67,7 @@ class write_text{
     }
     function write_t(){
         echo $this->text;
-    return ($this->text);    
+    return ($this->text);
     }
     function clear_t(){
         $this->text = '';

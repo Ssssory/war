@@ -19,7 +19,6 @@ if ($a == $b){
 //выбор оружия для персонажа
 $wep1=wepon_chenge($link,$all_of_them[$a]['id_w']);
 $wep2=wepon_chenge($link,$all_of_them[$b]['id_w']);
-
 //прототип класса персонажа
 class person{
     public $id = 0;
@@ -42,14 +41,14 @@ class person{
     public function damagSelf($d){
         $this->hels -= $d;
         if ($this->hels <= 0){
-            $this->life = 0;             
+            $this->life = 0;
         }
     }
 }
 
 //загоняем выборку в классы
-$pers1 = new person($all_of_them[$a]['id'], $all_of_them[$a]['name'], $all_of_them[$a]['hels'], $all_of_them[$a]['damage'], $wep1['name_wepon']);
-$pers2 = new person($all_of_them[$b]['id'], $all_of_them[$b]['name'], $all_of_them[$b]['hels'], $all_of_them[$b]['damage'], $wep2['name_wepon']);
+$pers1 = new person($all_of_them[$a]['id'], $all_of_them[$a]['name'], $all_of_them[$a]['hels'], $all_of_them[$a]['damage'], $wep1[0]['name_wepon']);
+$pers2 = new person($all_of_them[$b]['id'], $all_of_them[$b]['name'], $all_of_them[$b]['hels'], $all_of_them[$b]['damage'], $wep2[0]['name_wepon']);
 // переделать в функцию и вызывать по нажатию кнопки
 $text_rez = new write_text;
 
@@ -62,7 +61,7 @@ while ($pers1->life || $pers2->life != 0){
     $d = $pers1->shoot();
     $pers2->damagSelf($d);
     if ($pers2->life == 0){
-        $text_rez->set_t( "персонаж ". $pers2->name ." потерпел поражение "); 
+        $text_rez->set_t( "персонаж ". $pers2->name ." потерпел поражение ");
         break;
     }
     if($pers2->life == 1){
@@ -75,5 +74,5 @@ while ($pers1->life || $pers2->life != 0){
         }
     }
    }
-    
+
 ?>
