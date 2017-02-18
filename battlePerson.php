@@ -19,6 +19,9 @@
                 <li>Здоровье <ltext><?php echo $all_of_them[$a]['hels']?></ltext></li>
                 <li>Поразительная сила <ltext><?php echo $arrWepon[$all_of_them[$a]['id_w']]['damage_min']." - ".$arrWepon[$all_of_them[$a]['id_w']]['damage_max']?></ltext></li>
                 <li>Наличие отсутствия <ltext><?php echo $pers1->gun?></ltext></li>
+                <li>Всего <ltext><?php echo $pers1->battles?></ltext></li>
+                <li>Победы <ltext><?php echo $pers1->win?></ltext></li>
+                <li>Поражения <ltext><?php echo $pers1->lose?></ltext></li>
             </ul>
             </div>
             <div class="buttons">
@@ -34,6 +37,9 @@
                 <li>Здоровье <ltext><?php echo $all_of_them[$b]['hels']?></ltext></li>
                 <li>Сила <ltext><?php echo $arrWepon[$all_of_them[$b]['id_w']]['damage_min']." - ".$arrWepon[$all_of_them[$b]['id_w']]['damage_max']?></ltext></li>
                 <li>Наличие отсутствия <ltext><?php echo $pers2->gun?></ltext></li>
+                <li>Всего <ltext><?php echo $pers2->battles?></ltext></li>
+                <li>Победы <ltext><?php echo $pers2->win?></ltext></li>
+                <li>Поражения <ltext><?php echo $pers2->lose?></ltext></li>
             </ul>                </div>
         </div>
         <div class="log">
