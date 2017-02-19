@@ -29,7 +29,7 @@
                     <button <?php ##name='way' value='start'?>>Запуск</button>
                     <button name='way' value='option'>Настройки</button>
                     <button name='way' value='new_p'>Создать</button>
-                    <button <?php ##name='way' value='correct'?>>Изменить</button>
+                    <button name='way' value='correct'>Изменить</button>
                 </form>
             </div>
             <div class="right"><p>Окно второго персонажа <?php echo $all_of_them[$b]['name'] ?></p>

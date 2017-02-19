@@ -23,6 +23,14 @@ $result = mysqli_query($link, $query);
         die(mysqli_error($link));
 return true;
 }
+##функция статистики персонажей. передавать
+function update_to_null_statistic($link){
+    $upnull_property = "UPDATE persons SET count_battle = 0, count_win = 0, count_lose = 0";
+$result = mysqli_query($link, $upnull_property);
+    if(!$result)
+        die(mysqli_error($link));
+return true;
+}
 
 ##Функция просмотра всех имеющихся персонажей
 function look_all($link){
